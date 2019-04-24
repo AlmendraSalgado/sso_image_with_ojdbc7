@@ -1,0 +1,7 @@
+## admin cli commands to edit the configuration
+embed-server --std-out=echo  --server-config=standalone-openshift.xml
+batch
+module add --name=com.oracle --resources=/extensions/ojdbc7.jar --dependencies=javax.api,javax.resource.api
+/subsystem=datasources/jdbc-driver=oracle:add(driver-name=oracle,driver-module-name=com.oracle,driver-xa-datasource-class-name=oracle.jdbc.xa.client.OracleXADataSource)
+run-batch
+quit
